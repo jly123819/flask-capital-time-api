@@ -29,6 +29,8 @@ def token_required(f):
 @token_required
 def capital_time():
     city = request.args.get('city')
+    print(f"Received request for city: {city}")  # ← 调试日志
+
     if not city or city not in capital_timezones:
         return jsonify({"error": "City not found"}), 404
 
@@ -40,6 +42,7 @@ def capital_time():
         "local_time": local_time.strftime('%Y-%m-%d %H:%M:%S'),
         "utc_offset": f"{utc_offset[:3]}:{utc_offset[3:]}"
     })
+
 
 @app.route('/')
 def index():
