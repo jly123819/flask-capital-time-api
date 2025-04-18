@@ -55,12 +55,6 @@ curl -H "Authorization: Bearer supersecrettoken123" "http://<YOUR-IP>:5002/api/c
 }
 
 
-@app.route('/api/capital-time', methods=['GET'])
-@token_required
-def capital_time():
-    city = request.args.get('city')
-    print(f"Received request for city: {city}")  # ← 加这一行
-    ...
 
 
 ---
